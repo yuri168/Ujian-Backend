@@ -1,0 +1,31 @@
+create database Toko;
+use Toko;
+
+CREATE TABLE Produk (
+No INT NOT NULL AUTO_INCREMENT,
+namaproduk VARCHAR(30),
+penjual VARCHAR(30),
+kota TEXT,
+katagori VARCHAR(30),
+harga INT,
+Berat FLOAT(3,1),
+PRIMARY KEY (No)
+);
+
+INSERT INTO Produk VALUES
+(NULL,'Gamis Tsurayya','HijUp Store','Bandung','Fashion',300000,1.5),
+(NULL,'Robot Alpha 1s','Electra','Surabaya','Elektronik',4000000,3.0),
+(NULL,'Adidas Telstar 18','Sportivo','Jakarta','Olahraga',1500000,0.2),
+(NULL,'Kemeja Pantai','Sportivo','Jakarta','Fashion',50000,0.2),
+(NULL,'Trafo Up/Down','Prima Shop','Semarang','Elektronik',75000,1.0),
+(NULL,'Matras Yoga','HijUp Store','Bandung','Olahraga',35000,0.1),
+(NULL,'Hijab Monalisa','HijUp Store','Bandung','Fashion',75000,0.1),
+(NULL,'Drone DJI Tello','Electra','Surabaya','Elektronik',4000000,5.0),
+(NULL,'Nike Treadmill','Nike Indonesia','Bali','Olahraga',7000000,12.0),
+(NULL,'Celana Jogger','Waikiki','Tangerang','Fashion',100000,0.3);
+
+select * from Produk order by kota ASC;
+
+select * from produk group by kota asc having max(harga);
+
+select * from produk where harga = (select min(harga) from produk);
